@@ -41,13 +41,15 @@ function findMinMax(arr)
 }
 
 //Generate a random integer within a specified range.
-function getRandomNumber(int)
+function getRandomNumber(low = 0,high)
 {
-    if(isNaN(int))
+    if(isNaN(high) || isNaN(low))
         {
             throw new Error("Invalid input!");
         }
-    return Math.floor(Math.random() * int) + 1 ;
+    let randNum = Math.random();
+    
+    return Math.floor(randNum * (high - low)) + low ;
 }
 
 //Round a number to a specified number of decimal places.
@@ -145,11 +147,12 @@ while(true)
             }
             if(option == "random")
                 {
-                    let num = prompt("Enter the digit :");
+                    let string_nums = prompt("Enter the range separated by commas :");
+                    let nums = string_nums.split(',');
                     try
                     {
-                        let result = getRandomNumber(Number(num));
-                        console.log(`A random number from 1 to ${num} :  ${result}`);
+                        let result = getRandomNumber(Number(nums[0]),Number(nums[1]));
+                        console.log(`A random number from ${nums[0]}to ${nums[1]} :  ${result}`);
                     }
                     catch(err)
                     {
