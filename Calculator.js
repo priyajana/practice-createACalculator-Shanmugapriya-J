@@ -152,7 +152,7 @@ while(true)
                     try
                     {
                         let result = getRandomNumber(Number(nums[0]),Number(nums[1]));
-                        console.log(`A random number from ${nums[0]}to ${nums[1]} :  ${result}`);
+                        console.log(`A random number from ${nums[0]} to ${nums[1]} :  ${result}`);
                     }
                     catch(err)
                     {
